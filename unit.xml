@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.1790" tests="4" failures="2">
+  <testsuite name="Root Suite" timestamp="2022-06-22T19:40:00" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="express_recipes_filters" timestamp="2022-06-22T19:40:00" tests="4" file="C:\Users\Gonzalo\Desktop\RecipeFilter\test\index.spec.js" time="0.1790" failures="2">
+    <testcase name="express_recipes_filters Should return 400 for /recipes/shopping-list if no ids are passed in query" time="0.0910" classname="Should return 400 for /recipes/shopping-list if no ids are passed in query">
+    </testcase>
+    <testcase name="express_recipes_filters Should respond back with a 404 if none of the ids match" time="0.0320" classname="Should respond back with a 404 if none of the ids match">
+    </testcase>
+    <testcase name="express_recipes_filters Should respond with the shopping list if the ids are valid and match is found" time="0.0240" classname="Should respond with the shopping list if the ids are valid and match is found">
+      <failure message="expected {} to deeply equal [ Array(2) ]" type="AssertionError"><![CDATA[AssertionError: expected {} to deeply equal [ Array(2) ]
+    at C:\Users\Gonzalo\Desktop\RecipeFilter\test\index.spec.js:36:38
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)]]></failure>
+    </testcase>
+    <testcase name="express_recipes_filters Should respond with the correct shopping if the query sent is mixed" time="0.0320" classname="Should respond with the correct shopping if the query sent is mixed">
+      <failure message="expected 500 to deeply equal 200" type="AssertionError"><![CDATA[AssertionError: expected 500 to deeply equal 200
+    at C:\Users\Gonzalo\Desktop\RecipeFilter\test\index.spec.js:45:40
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
