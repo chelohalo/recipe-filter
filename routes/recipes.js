@@ -22,9 +22,17 @@ router.get("/shopping-list/", function (req, res, next) {
 
  
   
+    function getRecipesByIds(ids, recipes) {
+      return ids.map(id => recipes.find(recipe => recipe.id == id)) 
+  }
 
-    const ingredients = ids.map(id => recipes.find(recipe => recipe.id == id).ingredients);
-    res.send(JSON.stringify(ingredients)) 
+
+    // const ingredients = ids.map(id => recipes.find(recipe => recipe.id == id).ingredients);
+    const ingredients = ids.map(id => recipes[id-1].ingredients);
+    console.log(ingredients)
+    console.log(typeof(ingredients))
+    // res.send(JSON.stringify(ingredients)) 
+    res.send(ingredients[0])
 
 });
 
