@@ -14,25 +14,39 @@ router.get("/shopping-list/", function (req, res, next) {
   } 
   
   const ids = queries.ids.split(",");
-  console.log("ids", ids)
-   console.log("find: ", ids.map(id => recipes[id]? true: false ))
+  // const ids = [1,12, 3]
   const validIds = ids.map(id => recipes[id]? true: false )
   if (!validIds.includes(true)) {   
-    res.status(404).send("NOT_FOUND")}
-
- 
-  
-    function getRecipesByIds(ids, recipes) {
-      return ids.map(id => recipes.find(recipe => recipe.id == id)) 
+    res.status(404).send("NOT_FOUND")
+    return 
   }
 
 
-    // const ingredients = ids.map(id => recipes.find(recipe => recipe.id == id).ingredients);
-    const ingredients = ids.map(id => recipes[id-1].ingredients);
-    console.log(ingredients)
-    console.log(typeof(ingredients))
-    // res.send(JSON.stringify(ingredients)) 
-    res.send(ingredients[0])
+  const ing = []
+  ids.forEach(id => {
+    const recipe = recipes.find(recipe => recipe.id == id)
+    if(recipe) {
+      recipe.ingredients.forEach(ingredient => {
+        ing.push(ingredient)
+      })
+    }    
+  })
+  console.log("ingredients:", ing)
+
+  res.json(ing);
+
+  //  console.log("find: ", ids.map(id => recipes[id]? true: false ))
+
+  
+
+    
+  //   console.log('depuratedIds',depuratedIds)
+  //   const ingredients = ids.map(id => recipes[id-1].ingredients);
+  //   const shoppingList = ingredients.reduce((acc, curr) => acc.concat(curr), []);
+
+  //   console.log('depuratedIds',depuratedIds)
+  //   console.log(typeof(ingredients))
+  //   res.send(shoppingList)
 
 });
 
